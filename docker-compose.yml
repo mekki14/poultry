@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: poultry-db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: poultry_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: poultry-app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/poultry_db
+      BETTER_AUTH_SECRET: "secret123"
+      BETTER_AUTH_URL: "http://localhost:3000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
