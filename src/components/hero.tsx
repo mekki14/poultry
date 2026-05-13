@@ -2,9 +2,11 @@
 
 import { KitovButton } from "@/components/kitov"
 import { RoleToggle } from "@/components/role-toggle"
-import { Leaf, Magnifier } from "@solar-icons/react/ssr"
+import { Leaf, Magnifier, Cart3 } from "@solar-icons/react/ssr"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import type { Role } from "@/lib/roles"
+import type { IconProps } from "@solar-icons/react"
 
 const linearEasing = (t: number) => {
   const pts = [
@@ -24,17 +26,23 @@ const linearEasing = (t: number) => {
 
 const transition = { duration: 0.9, ease: linearEasing }
 
-const heroContent = {
+const heroContent: Record<Role, { title: string; desc: string; cta: string; icon: React.ComponentType<IconProps> }> = {
   farmer: {
     title: "اعرض منتجاتك\nعلى آلاف المشترين",
-    desc: "سوق رقمي مباشر يجمعك بالموزعين في 48 ولاية.",
+    desc: "سوق رقمي مباشر يجمعك بالموردين في 48 ولاية.",
     cta: "ابدأ البيع",
     icon: Leaf,
   },
-  buyer: {
-    title: "ابحث عن أفضل\nموردي الدواجن",
-    desc: "تواصل مع كبار المربين والموزعين مباشرة وبدون وسطاء.",
+  butcher: {
+    title: "ابحث عن أفضل\nالدواجن لمحلك",
+    desc: "تواصل مع الموردين مباشرة واحصل على أجود الدواجن لمحل الجزارة الخاص بك.",
     cta: "اطلب الآن",
+    icon: Cart3,
+  },
+  supplier: {
+    title: "اشتري من الفلاحين\nوبع للجزارين",
+    desc: "تواصل مع الفلاحين مباشرة، واعرض منتجاتك للجزارين.",
+    cta: "ابدأ الآن",
     icon: Magnifier,
   },
 }
@@ -43,8 +51,8 @@ export function Hero({
   role,
   onToggle,
 }: {
-  role: "farmer" | "buyer"
-  onToggle: (role: "farmer" | "buyer") => void
+  role: Role
+  onToggle: (role: Role) => void
 }) {
   const content = heroContent[role]
   const Icon = content.icon
@@ -87,10 +95,12 @@ export function Hero({
           transition={transition}
           className="mt-10"
         >
-          <KitovButton variant={role === "buyer" ? "secondary" : "primary"} size="lg" className="rounded-xl px-10 gap-2">
-            <Icon weight="BoldDuotone" className="size-5" />
-            {content.cta}
-          </KitovButton>
+          <Link href="/register">
+            <KitovButton variant={role === "farmer" ? "primary" : "secondary"} size="lg" className="rounded-xl px-10 gap-2">
+              <Icon weight="BoldDuotone" className="size-5" />
+              {content.cta}
+            </KitovButton>
+          </Link>
         </motion.div>
       </div>
     </section>

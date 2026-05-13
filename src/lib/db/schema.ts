@@ -12,7 +12,9 @@ export const user = pgTable("user", {
     .defaultNow()
     .$onUpdate(() => new Date())
     .notNull(),
-  role: text("role").default("user").notNull(),
+  role: text("role").default("farmer").notNull(),
+  phone: text("phone"),
+  location: text("location"),
 });
 
 export const session = pgTable(
@@ -125,3 +127,99 @@ export const eggProduction = pgTable("egg_production", {
   date: timestamp("date").defaultNow().notNull(),
   count: integer("count").notNull(),
 });
+
+export const products = pgTable("products", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  description: text("description"),
+  price: text("price").notNull(),
+  unit: text("unit").notNull().default("kg"),
+  quantity: integer("quantity").notNull().default(0),
+  category: text("category").default("other"),
+  imageUrl: text("image_url"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+});
+
+export const productsRelations = relations(products, ({ one }) => ({
+  user: one(user, {
+    fields: [products.userId],
+    references: [user.id],
+  }),
+}));
+
+export const orders = pgTable("orders", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  productId: uuid("product_id")
+    .notNull()
+    .references(() => products.id, { onDelete: "cascade" }),
+  sellerId: text("seller_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  buyerId: text("buyer_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  quantity: integer("quantity").notNull(),
+  totalPrice: text("total_price").notNull(),
+  status: text("status").notNull().default("pending"),
+  slaughterWithDelivery: boolean("slaughter_with_delivery").default(false).notNull(),
+  slaughterFee: text("slaughter_fee"),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+});
+
+export const ordersRelations = relations(orders, ({ one }) => ({
+  product: one(products, {
+    fields: [orders.productId],
+    references: [products.id],
+  }),
+  seller: one(user, {
+    fields: [orders.sellerId],
+    references: [user.id],
+  }),
+  buyer: one(user, {
+    fields: [orders.buyerId],
+    references: [user.id],
+  }),
+}));
+
+export const messages = pgTable("messages", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  senderId: text("sender_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  receiverId: text("receiver_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  productId: uuid("product_id").references(() => products.id, {
+    onDelete: "set null",
+  }),
+  content: text("content").notNull(),
+  read: boolean("read").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export const messagesRelations = relations(messages, ({ one }) => ({
+  sender: one(user, {
+    fields: [messages.senderId],
+    references: [user.id],
+  }),
+  receiver: one(user, {
+    fields: [messages.receiverId],
+    references: [user.id],
+  }),
+  product: one(products, {
+    fields: [messages.productId],
+    references: [products.id],
+  }),
+}));

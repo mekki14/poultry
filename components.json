@@ -9,11 +9,15 @@
     "baseColor": "neutral",
     "cssVariables": true
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
+  },
+  "registries": {
+    "@evilcharts": "https://evilcharts.com/r/{name}.json"
   }
 }

@@ -9,7 +9,6 @@ interface NavLink {
 }
 
 interface NavbarProps {
-  variant?: "light" | "dark";
   navLinks?: NavLink[];
   buttons?: ReactNode;
 }
@@ -34,38 +33,19 @@ const defaultButtons = (
   </>
 );
 
-export function Navbar({ variant = "light", navLinks, buttons }: NavbarProps) {
-  const isDark = variant === "dark";
+export function Navbar({ navLinks, buttons }: NavbarProps) {
   const links = navLinks ?? defaultNavLinks;
   const btns = buttons ?? defaultButtons;
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b ${
-        isDark
-          ? "border-white/10 bg-kitov-dark text-white"
-          : "border-kitov-dark/5 bg-white/95 backdrop-blur-sm supports-backdrop-filter:bg-white/80"
-      }`}
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-kitov-dark/5 bg-white/95 backdrop-blur-sm supports-backdrop-filter:bg-white/80">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-12">
         <Link
           href="/"
-          className={`flex items-center gap-2 font-heading text-xl ${
-            isDark ? "font-bold tracking-tight" : "font-extrabold"
-          }`}
+          className="flex items-center gap-2 font-heading text-xl font-extrabold"
         >
-          {isDark ? (
-            <span>Fellahok</span>
-          ) : (
-            <>
-              <Leaf
-                weight="BoldDuotone"
-                size={28}
-                className="text-kitov-red"
-              />
-              <span className="text-kitov-dark">فلاحك</span>
-            </>
-          )}
+          <Leaf weight="BoldDuotone" size={28} className="text-kitov-red" />
+          <span className="text-kitov-dark">فلاحك</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -73,11 +53,7 @@ export function Navbar({ variant = "light", navLinks, buttons }: NavbarProps) {
             <Link
               key={link.href + link.label}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                isDark
-                  ? "text-white/70 hover:text-white"
-                  : "text-kitov-dark/70 hover:text-kitov-dark"
-              }`}
+              className="text-sm font-medium text-kitov-dark/70 transition-colors hover:text-kitov-dark"
             >
               {link.label}
             </Link>

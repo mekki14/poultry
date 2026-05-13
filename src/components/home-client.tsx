@@ -14,7 +14,16 @@ import {
 } from "@/components/kitov"
 
 import { Hero } from "@/components/hero"
-import { Leaf, Magnifier, Chart, Shield, UsersGroupRounded, Delivery } from "@solar-icons/react/ssr"
+import {
+  SproutDuotone,
+  SearchDuotone,
+  ChartDuotone,
+  TruckDuotone,
+  ShieldDuotone,
+  UsersDuotone,
+  SolarDeliveryBoldDuotone
+} from "@/components/icons/solar"
+import type { Role } from "@/lib/roles"
 
 const transition = {
   duration: 0.9,
@@ -23,10 +32,10 @@ const transition = {
 
 const farmerSections = {
   services: [
-    { title: "اعرض منتجاتك", desc: "انشر الدجاج، البيض، الأعلاف مع الصور والأسعار", icon: Leaf },
-    { title: "تواصل مع المشترين", desc: "استقبل طلبات الجزارين والموزعين مباشرة", icon: UsersGroupRounded },
-    { title: "تسعير ذكي", desc: "اطلع على أسعار السوق وحدد سعرك التنافسي", icon: Chart },
-    { title: "توصيل مضمون", desc: "شبكة لوجستية توصل منتجاتك عبر 48 ولاية", icon: Delivery },
+    { title: "اعرض منتجاتك", desc: "انشر الدجاج، البيض، الأعلاف مع الصور والأسعار", icon: SproutDuotone },
+    { title: "تواصل مع المشترين", desc: "استقبل طلبات الموردين مباشرة", icon: UsersDuotone },
+    { title: "تسعير ذكي", desc: "اطلع على أسعار السوق وحدد سعرك التنافسي", icon: ChartDuotone },
+    { title: "توصيل مضمون", desc: "شبكة لوجستية توصل منتجاتك عبر 48 ولاية", icon: SolarDeliveryBoldDuotone },
   ],
   cta: {
     heading: "مستعد تبيع منتجاتك؟",
@@ -35,12 +44,12 @@ const farmerSections = {
   },
 }
 
-const buyerSections = {
+const supplierSections = {
   services: [
-    { title: "ابحث عن موردين", desc: "تصفح آلاف الفلاحين والموزعين في كل الولايات", icon: Magnifier },
-    { title: "قارن الأسعار", desc: "احصل على أفضل صفقة بمقارنة عروض الموردين", icon: Chart },
-    { title: "طلبات مضمونة", desc: "نظام دفع آمن يضمن حقوقك حتى استلام الطلب", icon: Shield },
-    { title: "توصيل سريع", desc: "استلم منتجاتك في محلك عبر شبكة التوصيل الوطنية", icon: Delivery },
+    { title: "ابحث عن موردين", desc: "تصفح منتجات الفلاحين واختر ما تحتاجه", icon: SearchDuotone },
+    { title: "اعرض منتجاتك", desc: "انشر منتجاتك للجزارين في كل الولايات", icon: SproutDuotone },
+    { title: "طلبات مضمونة", desc: "نظام دفع آمن يضمن حقوقك حتى استلام الطلب", icon: ShieldDuotone },
+    { title: "توصيل سريع", desc: "استلم منتجاتك في محلك عبر شبكة التوصيل الوطنية", icon: SolarDeliveryBoldDuotone },
   ],
   cta: {
     heading: "ابحث عن موردك الآن",
@@ -48,14 +57,35 @@ const buyerSections = {
     btn: "ابدأ البحث",
   },
 }
-export function HomeClient() {
-  const [role, setRole] = useState<"farmer" | "buyer">("buyer")
 
-  const handleRoleToggle = useCallback((r: "farmer" | "buyer") => {
+const butcherSections = {
+  services: [
+    { title: "ابحث عن موردين", desc: "تصفح منتجات الموزعين في كل الولايات", icon: SearchDuotone },
+    { title: "قارن الأسعار", desc: "احصل على أفضل صفقة بمقارنة عروض الموردين", icon: ChartDuotone },
+    { title: "طلبات مضمونة", desc: "نظام دفع آمن يضمن حقوقك حتى استلام الطلب", icon: ShieldDuotone },
+    { title: "توصيل سريع", desc: "استلم منتجاتك في محلك عبر شبكة التوصيل الوطنية", icon: SolarDeliveryBoldDuotone },
+  ],
+  cta: {
+    heading: "ابحث عن موردك الآن",
+    sub: "أكبر شبكة موردي دواجن في الجزائر. البحث مجاني.",
+    btn: "ابدأ البحث",
+  },
+}
+
+const sectionsMap: Record<Role, typeof farmerSections> = {
+  farmer: farmerSections,
+  butcher: butcherSections,
+  supplier: supplierSections,
+}
+
+export function HomeClient() {
+  const [role, setRole] = useState<Role>("butcher")
+
+  const handleRoleToggle = useCallback((r: Role) => {
     setRole(r)
   }, [])
 
-  const sections = role === "farmer" ? farmerSections : buyerSections
+  const sections = sectionsMap[role]
 
   return (
     <div className="flex flex-col">
@@ -84,7 +114,7 @@ export function HomeClient() {
                     className="h-full cursor-pointer transition-all hover:shadow-kitov-lg"
                   >
                     <KitovCardHeader>
-                      <Icon weight="BoldDuotone" className="mb-2 size-8 text-kitov-dark" />
+                      <Icon className="mb-2 size-8 text-kitov-dark" />
                       <KitovCardTitle>{item.title}</KitovCardTitle>
                       <KitovCardDescription>{item.desc}</KitovCardDescription>
                     </KitovCardHeader>
@@ -137,7 +167,6 @@ export function HomeClient() {
           </div>
         </div>
       </KitovSection>
-
 
     </div>
   )

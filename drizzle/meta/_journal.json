@@ -8,6 +8,48 @@
       "when": 1778419016121,
       "tag": "0000_busy_millenium_guard",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1778475079624,
+      "tag": "0001_clever_sage",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1778476920300,
+      "tag": "0003_dark_morph",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1778478544222,
+      "tag": "0003_chubby_purple_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1778565493634,
+      "tag": "0004_add_user_phone_location",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1778600000000,
+      "tag": "0005_update_buyer_role_to_butcher",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1778700000000,
+      "tag": "0006_rename_farmer_id_to_seller_id",
+      "breakpoints": true
     }
   ]
 }
