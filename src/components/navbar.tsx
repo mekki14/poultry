@@ -16,7 +16,7 @@ interface NavbarProps {
 const defaultNavLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "المنتجات", href: "/#products" },
-  { label: "عن كيتوف", href: "/#about" },
+  { label: "عن فلاحك", href: "/#about" },
 ];
 
 const defaultButtons = (
