@@ -1,8 +1,6 @@
 services:
   db:
     image: postgres:15-alpine
-    container_name: poultry-db
-    restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
@@ -11,22 +9,15 @@ services:
       - "${DB_PORT:-5434}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-user} -d ${POSTGRES_DB:-poultry_db}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   app:
     build:
       context: .
-      dockerfile: Dockerfile
       args:
         DATABASE_URL: ${DATABASE_URL}
         BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
         BETTER_AUTH_URL: ${BETTER_AUTH_URL}
-    container_name: poultry-app
-    restart: always
+    init: true
     ports:
       - "${APP_PORT:-3000}:3000"
     environment:
@@ -35,7 +26,7 @@ services:
       BETTER_AUTH_URL: ${BETTER_AUTH_URL}
     depends_on:
       db:
-        condition: service_healthy
+        condition: service_started
 
 volumes:
   postgres_data:
