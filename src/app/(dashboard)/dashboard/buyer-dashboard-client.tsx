@@ -42,10 +42,10 @@ export function BuyerDashboardClient({
   return (
     <div className="flex flex-col gap-10 pb-12">
       {/* ── Welcome Hero ── */}
-      <section className="relative overflow-hidden rounded-2xl bg-kitov-dark px-8 py-12 md:py-16">
+      <section className="relative overflow-hidden rounded-2xl bg-brand-dark px-8 py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-kitov-yellow/5 blur-3xl" />
-          <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-kitov-red/5 blur-3xl" />
+          <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-brand-yellow/5 blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-brand-red/5 blur-3xl" />
         </div>
         <div className="relative">
           <motion.h1
@@ -74,7 +74,7 @@ export function BuyerDashboardClient({
           >
             <Link
               href="/dashboard/browse"
-              className="inline-flex items-center gap-2 rounded-xl bg-kitov-yellow px-6 py-3 font-heading font-bold text-kitov-dark transition-all hover:bg-[#e6bd00] hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-yellow px-6 py-3 font-heading font-bold text-brand-dark transition-all hover:bg-[#e6bd00] hover:shadow-lg"
             >
               <Magnifier className="size-4" />
               تصفح المنتجات
@@ -110,7 +110,7 @@ export function BuyerDashboardClient({
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
-                <Icon className="size-5 text-kitov-red/60" />
+                <Icon className="size-5 text-brand-red/60" />
               </div>
               <p className="mt-2 font-heading text-2xl font-extrabold tracking-tight">{stat.value}</p>
             </motion.div>
@@ -124,11 +124,11 @@ export function BuyerDashboardClient({
         whileInView={{ opacity: 1, y: 0 }}
         transition={transition}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-kitov-yellow/20 to-kitov-yellow/5 px-8 py-12"
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 px-8 py-12"
       >
         <div className="relative text-center">
-          <Magnifier className="mx-auto mb-4 size-12 text-kitov-red/60" />
-          <h2 className="font-heading text-2xl font-bold text-kitov-dark">ابحث عن المنتجات</h2>
+          <Magnifier className="mx-auto mb-4 size-12 text-brand-red/60" />
+          <h2 className="font-heading text-2xl font-bold text-brand-dark">ابحث عن المنتجات</h2>
           <p className="mx-auto mt-2 max-w-md text-muted-foreground">
             {role === "butcher"
               ? "تصفح منتجات الموردين المتاحة. دجاج حي، بيض، أعلاف، ومعدات"
@@ -136,7 +136,7 @@ export function BuyerDashboardClient({
           </p>
           <Link
             href="/dashboard/browse"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-kitov-red px-6 py-3 font-heading font-bold text-white transition-all hover:bg-[#c81a1f]"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-red px-6 py-3 font-heading font-bold text-white transition-all hover:bg-[#c81a1f]"
           >
             <Magnifier className="size-4" />
             استعرض المنتجات
@@ -155,7 +155,7 @@ export function BuyerDashboardClient({
           <h2 className="font-heading text-2xl font-bold">آخر طلباتي</h2>
           <Link
             href="/dashboard/orders"
-            className="inline-flex items-center gap-1 text-sm font-medium text-kitov-red transition-colors hover:text-kitov-red/80"
+            className="inline-flex items-center gap-1 text-sm font-medium text-brand-red transition-colors hover:text-brand-red/80"
           >
             عرض الكل
             <ArrowLeft className="size-4" />
@@ -170,7 +170,7 @@ export function BuyerDashboardClient({
             </p>
             <Link
               href="/dashboard/browse"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-kitov-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
             >
               <Magnifier className="size-4" />
               تصفح المنتجات
@@ -197,7 +197,7 @@ export function BuyerDashboardClient({
                     <td className="px-4 py-3">{order.quantity}</td>
                     <td className="px-4 py-3">
                       {order.slaughterWithDelivery ? (
-                        <span className="text-xs font-medium text-kitov-red">نعم ✓</span>
+                        <span className="text-xs font-medium text-brand-red">نعم ✓</span>
                       ) : (
                         <span className="text-xs text-muted-foreground">—</span>
                       )}

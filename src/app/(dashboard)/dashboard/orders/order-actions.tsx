@@ -90,7 +90,7 @@ export function ContactBuyerButton({
   return (
     <Link
       href={`/dashboard/messages?userId=${buyerId}&productId=${productId}`}
-      className="inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 text-xs font-medium text-kitov-red transition-all hover:bg-kitov-red/5"
+      className="inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 text-xs font-medium text-brand-red transition-all hover:bg-brand-red/5"
     >
       <ChatRoundDots className="size-3.5" />
       تواصل

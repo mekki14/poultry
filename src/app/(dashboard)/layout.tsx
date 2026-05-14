@@ -31,13 +31,13 @@ export default async function DashboardLayout({ children }: { children: React.Re
     .where(and(eq(messages.receiverId, currentUser.id), eq(messages.read, false)));
 
   return (
-    <div className="flex min-h-screen bg-kitov-shell/50" dir="rtl">
+    <div className="flex min-h-screen bg-brand-shell/50" dir="rtl">
       {/* Sidebar */}
       <aside className="flex w-64 flex-col border-l bg-white shadow-sm">
         {/* Brand */}
         <div className="flex h-16 items-center gap-2.5 border-b px-6">
-          <Leaf weight="BoldDuotone" size={28} className="text-kitov-red" />
-          <span className="font-heading text-xl font-extrabold tracking-tight text-kitov-dark">
+          <Leaf weight="BoldDuotone" size={28} className="text-brand-red" />
+          <span className="font-heading text-xl font-extrabold tracking-tight text-brand-dark">
             فلاحك
           </span>
         </div>
@@ -56,11 +56,11 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
         {/* User info & logout */}
         <div className="border-t p-4">
-          <p className="mb-1 truncate px-1 text-sm font-medium text-kitov-dark">
+          <p className="mb-1 truncate px-1 text-sm font-medium text-brand-dark">
             {currentUser.name}
           </p>
           <p className="mb-1 truncate px-1 text-xs text-muted-foreground">{currentUser.email}</p>
-          <p className="mb-3 truncate px-1 text-xs font-medium text-kitov-red">{label}</p>
+          <p className="mb-3 truncate px-1 text-xs font-medium text-brand-red">{label}</p>
           <form action={logout}>
             <button
               type="submit"

@@ -9,12 +9,12 @@ import { signIn } from "./actions";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  KitovCard,
-  KitovCardHeader,
-  KitovCardTitle,
-  KitovCardContent,
-} from "@/components/kitov/kitov-card";
-import { KitovButton } from "@/components/kitov/kitov-button";
+  BrandCard,
+  BrandCardHeader,
+  BrandCardTitle,
+  BrandCardContent,
+} from "@/components/brand/brand-card";
+import { BrandButton } from "@/components/brand/brand-button";
 
 export function LoginForm() {
   const [state, action, pending] = useActionState(signIn, undefined);
@@ -27,8 +27,8 @@ export function LoginForm() {
     <div dir="rtl">
       {/* background decoration */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-        <div className="absolute -end-32 -top-32 h-80 w-80 rounded-full bg-kitov-yellow/10 blur-3xl" />
-        <div className="absolute -bottom-32 -start-32 h-80 w-80 rounded-full bg-kitov-red/10 blur-3xl" />
+        <div className="absolute -end-32 -top-32 h-80 w-80 rounded-full bg-brand-yellow/10 blur-3xl" />
+        <div className="absolute -bottom-32 -start-32 h-80 w-80 rounded-full bg-brand-red/10 blur-3xl" />
       </div>
 
       <motion.div
@@ -37,16 +37,16 @@ export function LoginForm() {
         transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
         className="flex min-h-[calc(100vh-8rem)] items-center justify-center px-4 py-10"
       >
-        <KitovCard className="w-full max-w-sm">
-          <KitovCardHeader className="text-center">
+        <BrandCard className="w-full max-w-sm">
+          <BrandCardHeader className="text-center">
             <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} transition={{ delay: 0.1, duration: 0.35 }}>
-              <KitovCardTitle className="text-2xl">تسجيل الدخول</KitovCardTitle>
-              <p className="mt-1.5 text-sm text-kitov-dark/60">
-                مرحباً بعودتك إلى منصة فلاك
+              <BrandCardTitle className="text-2xl">تسجيل الدخول</BrandCardTitle>
+              <p className="mt-1.5 text-sm text-brand-dark/60">
+                مرحباً بعودتك إلى منصة فلاحك
               </p>
             </motion.div>
-          </KitovCardHeader>
-          <KitovCardContent>
+          </BrandCardHeader>
+          <BrandCardContent>
             <form action={action} className="space-y-5" noValidate>
               {/* Email */}
               <div className="space-y-1.5">
@@ -67,7 +67,7 @@ export function LoginForm() {
                     placeholder="أدخل كلمة المرور" required
                     className="ps-9 pe-9" />
                   <button type="button" onClick={() => setShowPassword(!showPassword)}
-                    className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-kitov-dark transition-colors" tabIndex={-1}>
+                    className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-brand-dark transition-colors" tabIndex={-1}>
                     <Icon icon={showPassword ? "solar:eye-closed-bold-duotone" : "solar:eye-bold-duotone"} className="size-4" />
                   </button>
                 </div>
@@ -85,7 +85,7 @@ export function LoginForm() {
               </AnimatePresence>
 
               {/* Submit */}
-              <KitovButton type="submit" variant="primary" className="w-full h-11" disabled={pending}>
+              <BrandButton type="submit" variant="primary" className="w-full h-11" disabled={pending}>
                 {pending ? (
                   <span className="flex items-center justify-center gap-2">
                     <Icon icon="solar:refresh-circle-bold-duotone" className="size-4 animate-spin" />
@@ -94,7 +94,7 @@ export function LoginForm() {
                 ) : (
                   "تسجيل الدخول"
                 )}
-              </KitovButton>
+              </BrandButton>
             </form>
 
             {/* Divider */}
@@ -106,12 +106,12 @@ export function LoginForm() {
             </div>
 
             {/* Register Link */}
-            <p className="text-center text-sm text-kitov-dark/60">
+            <p className="text-center text-sm text-brand-dark/60">
               ليس لديك حساب؟{" "}
-              <Link href="/register" className="font-medium text-kitov-red underline-offset-4 hover:underline">إنشاء حساب</Link>
+              <Link href="/register" className="font-medium text-brand-red underline-offset-4 hover:underline">إنشاء حساب</Link>
             </p>
-          </KitovCardContent>
-        </KitovCard>
+          </BrandCardContent>
+        </BrandCard>
       </motion.div>
     </div>
   );

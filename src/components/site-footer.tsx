@@ -1,7 +1,6 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import { Footer } from "@/components/footer";
 import { LandingFooter } from "@/components/landing-footer";
 
 export function SiteFooter() {
@@ -9,7 +8,5 @@ export function SiteFooter() {
 
   if (pathname.startsWith("/dashboard")) return null;
 
-  if (pathname === "/") return <LandingFooter />;
-
-  return <Footer />;
+  return <LandingFooter />;
 }

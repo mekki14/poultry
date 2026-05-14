@@ -7,10 +7,10 @@ export function ProductForm({ categories }: { categories: { value: string; label
   const [state, action, pending] = useActionState(createProduct, undefined)
 
   return (
-    <form action={action} className="rounded-carton border bg-card p-6 shadow-kitov">
+    <form action={action} className="rounded-carton border bg-card p-6 shadow-brand">
       <div className="mb-4 flex items-center gap-2">
-        <div className="flex size-8 items-center justify-center rounded-lg bg-kitov-red/10">
-          <span className="text-sm font-bold text-kitov-red">+</span>
+        <div className="flex size-8 items-center justify-center rounded-lg bg-brand-red/10">
+          <span className="text-sm font-bold text-brand-red">+</span>
         </div>
         <h2 className="font-heading text-lg font-bold">إضافة منتج جديد</h2>
       </div>
@@ -91,7 +91,7 @@ export function ProductForm({ categories }: { categories: { value: string; label
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex items-center gap-2 rounded-xl bg-kitov-red px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-xl bg-brand-red px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
         >
           {pending ? "جاري الحفظ..." : "إضافة المنتج"}
         </button>

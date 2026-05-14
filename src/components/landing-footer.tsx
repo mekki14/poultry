@@ -1,6 +1,6 @@
 export function LandingFooter() {
   return (
-    <footer className="bg-kitov-dark py-12 text-white">
+    <footer className="bg-brand-dark py-12 text-white">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="grid gap-8 md:grid-cols-3">
           <div>

@@ -22,7 +22,7 @@ export function RoleToggle({
           onClick={() => onToggle(item.value)}
           className={cn(
             "rounded-full px-6 py-2 text-sm font-bold transition-all",
-            role === item.value ? "bg-white text-kitov-dark shadow-sm" : "text-white/70 hover:text-white"
+            role === item.value ? "bg-white text-brand-dark shadow-sm" : "text-white/70 hover:text-white"
           )}
         >
           {item.label}

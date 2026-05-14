@@ -57,8 +57,8 @@ export function ConversationView({
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${
                     isMine
-                      ? "rounded-br-md bg-kitov-yellow/20 text-kitov-dark"
-                      : "rounded-bl-md bg-kitov-red/10 text-kitov-dark"
+                      ? "rounded-br-md bg-brand-yellow/20 text-brand-dark"
+                      : "rounded-bl-md bg-brand-red/10 text-brand-dark"
                   }`}
                 >
                   <p>{msg.content}</p>
@@ -93,7 +93,7 @@ export function ConversationView({
           <button
             type="submit"
             disabled={pending}
-            className="rounded-xl bg-kitov-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
+            className="rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
           >
             {pending ? "..." : "إرسال"}
           </button>

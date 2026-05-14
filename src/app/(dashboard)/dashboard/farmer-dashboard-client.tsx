@@ -38,10 +38,10 @@ export function FarmerDashboardClient({
     <div className="flex flex-col gap-10 pb-12">
 
       {/* ── Welcome Hero ── */}
-      <section className="relative overflow-hidden rounded-2xl bg-kitov-dark px-8 py-12 md:py-16">
+      <section className="relative overflow-hidden rounded-2xl bg-brand-dark px-8 py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-kitov-yellow/5 blur-3xl" />
-          <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-kitov-red/5 blur-3xl" />
+          <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-brand-yellow/5 blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-brand-red/5 blur-3xl" />
         </div>
         <div className="relative">
           <motion.h1
@@ -68,7 +68,7 @@ export function FarmerDashboardClient({
           >
             <Link
               href="/dashboard/products"
-              className="inline-flex items-center gap-2 rounded-xl bg-kitov-yellow px-6 py-3 font-heading font-bold text-kitov-dark transition-all hover:bg-[#e6bd00] hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-yellow px-6 py-3 font-heading font-bold text-brand-dark transition-all hover:bg-[#e6bd00] hover:shadow-lg"
             >
               <AddCircle className="size-4" />
               إضافة منتج جديد
@@ -126,7 +126,7 @@ export function FarmerDashboardClient({
           <h2 className="font-heading text-2xl font-bold">منتجاتي</h2>
           <Link
             href="/dashboard/products"
-            className="inline-flex items-center gap-1 text-sm font-medium text-kitov-red transition-colors hover:text-kitov-red/80"
+            className="inline-flex items-center gap-1 text-sm font-medium text-brand-red transition-colors hover:text-brand-red/80"
           >
             عرض الكل
             <ArrowLeft className="size-4" />
@@ -139,7 +139,7 @@ export function FarmerDashboardClient({
             <p className="mt-1 text-sm text-muted-foreground/60">أضف منتجك الأول الآن</p>
             <Link
               href="/dashboard/products"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-kitov-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
             >
               <AddCircle className="size-4" />
               إضافة منتج
@@ -161,7 +161,7 @@ className="rounded-carton border bg-card p-5 transition-all duration-300"
                     <h3 className="font-heading font-bold">{product.name}</h3>
                     <p className="mt-0.5 text-xs text-muted-foreground">{product.category}</p>
                   </div>
-                  <span className="whitespace-nowrap rounded-full bg-kitov-yellow/20 px-3 py-1 text-sm font-bold text-kitov-dark">
+                  <span className="whitespace-nowrap rounded-full bg-brand-yellow/20 px-3 py-1 text-sm font-bold text-brand-dark">
                     {product.price} د.ج
                   </span>
                 </div>
@@ -188,7 +188,7 @@ className="rounded-carton border bg-card p-5 transition-all duration-300"
           <h2 className="font-heading text-2xl font-bold">الطلبات الواردة</h2>
           <Link
             href="/dashboard/orders"
-            className="inline-flex items-center gap-1 text-sm font-medium text-kitov-red transition-colors hover:text-kitov-red/80"
+            className="inline-flex items-center gap-1 text-sm font-medium text-brand-red transition-colors hover:text-brand-red/80"
           >
             عرض الكل
             <ArrowLeft className="size-4" />
@@ -221,7 +221,7 @@ className="rounded-carton border bg-card p-5 transition-all duration-300"
                     <td className="px-4 py-3">{order.quantity}</td>
                     <td className="px-4 py-3">
                       {order.slaughterWithDelivery ? (
-                        <span className="text-xs font-medium text-kitov-red">نعم ✓</span>
+                        <span className="text-xs font-medium text-brand-red">نعم ✓</span>
                       ) : (
                         <span className="text-xs text-muted-foreground">—</span>
                       )}
@@ -264,20 +264,20 @@ className="rounded-carton border bg-card p-5 transition-all duration-300"
         whileInView={{ opacity: 1, y: 0 }}
         transition={transition}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-kitov-dark to-kitov-dark/90 px-8 py-12 text-center"
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-brand-dark/90 px-8 py-12 text-center"
       >
         <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="absolute left-1/3 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-kitov-yellow/5 blur-3xl" />
+          <div className="absolute left-1/3 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-brand-yellow/5 blur-3xl" />
         </div>
         <div className="relative">
-          <ChatRoundDots className="mx-auto mb-4 size-12 text-kitov-yellow/60" />
+          <ChatRoundDots className="mx-auto mb-4 size-12 text-brand-yellow/60" />
           <h2 className="font-heading text-2xl font-bold text-white">المحادثات</h2>
           <p className="mx-auto mt-2 max-w-md text-white/60">
              تواصل مع الموردين ومناقشة الطلبات والتفاصيل مباشرة
           </p>
           <Link
             href="/dashboard/messages"
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-kitov-yellow px-6 py-3 font-heading font-bold text-kitov-dark transition-all hover:bg-[#e6bd00]"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-yellow px-6 py-3 font-heading font-bold text-brand-dark transition-all hover:bg-[#e6bd00]"
           >
             <ChatRoundDots className="size-4" />
             افتح المحادثات

@@ -9,12 +9,12 @@ import { signUp, type SignUpState } from "./actions";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  KitovCard,
-  KitovCardHeader,
-  KitovCardTitle,
-  KitovCardContent,
-} from "@/components/kitov/kitov-card";
-import { KitovButton } from "@/components/kitov/kitov-button";
+  BrandCard,
+  BrandCardHeader,
+  BrandCardTitle,
+  BrandCardContent,
+} from "@/components/brand/brand-card";
+import { BrandButton } from "@/components/brand/brand-button";
 
 const roles = [
   { value: "farmer", label: "فلاح", icon: "solar:leaf-bold-duotone", desc: "بيع المنتجات الزراعية والبيض والدواجن الحية" },
@@ -94,8 +94,8 @@ export function RegisterForm() {
     <div dir="rtl">
       {/* background decoration */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-        <div className="absolute -end-32 -top-32 h-80 w-80 rounded-full bg-kitov-yellow/10 blur-3xl" />
-        <div className="absolute -bottom-32 -start-32 h-80 w-80 rounded-full bg-kitov-red/10 blur-3xl" />
+        <div className="absolute -end-32 -top-32 h-80 w-80 rounded-full bg-brand-yellow/10 blur-3xl" />
+        <div className="absolute -bottom-32 -start-32 h-80 w-80 rounded-full bg-brand-red/10 blur-3xl" />
       </div>
 
       <motion.div
@@ -104,16 +104,16 @@ export function RegisterForm() {
         transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
         className="flex min-h-[calc(100vh-8rem)] items-center justify-center px-4 py-10"
       >
-        <KitovCard className="w-full max-w-md">
-          <KitovCardHeader className="text-center">
+        <BrandCard className="w-full max-w-md">
+          <BrandCardHeader className="text-center">
             <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} transition={{ delay: 0.1, duration: 0.35 }}>
-              <KitovCardTitle className="text-2xl">إنشاء حساب جديد</KitovCardTitle>
-              <p className="mt-1.5 text-sm text-kitov-dark/60">
-                انضم إلى منصة فلاك لتجارة الدواجن
+              <BrandCardTitle className="text-2xl">إنشاء حساب جديد</BrandCardTitle>
+              <p className="mt-1.5 text-sm text-brand-dark/60">
+                انضم إلى منصة فلاحك لتجارة الدواجن
               </p>
             </motion.div>
-          </KitovCardHeader>
-          <KitovCardContent>
+          </BrandCardHeader>
+          <BrandCardContent>
             <form action={handleSubmit} className="space-y-5" noValidate>
               {/* Role Selector */}
               <div className="space-y-2">
@@ -130,15 +130,15 @@ export function RegisterForm() {
                         className={cn(
                           "relative flex flex-col items-center gap-1.5 rounded-carton border-2 px-2 py-3 text-xs font-medium transition-all duration-200",
                           isActive
-                            ? "border-kitov-red bg-kitov-red/5 text-kitov-red shadow-xs"
-                            : "border-border text-muted-foreground hover:border-kitov-red/30 hover:bg-kitov-red/5"
+                            ? "border-brand-red bg-brand-red/5 text-brand-red shadow-xs"
+                            : "border-border text-muted-foreground hover:border-brand-red/30 hover:bg-brand-red/5"
                         )}
                       >
-                        <Icon icon={r.icon} className={cn("size-5", isActive ? "text-kitov-red" : "text-muted-foreground")} />
+                        <Icon icon={r.icon} className={cn("size-5", isActive ? "text-brand-red" : "text-muted-foreground")} />
                         <span>{r.label}</span>
                         {isActive && (
                           <motion.div layoutId="role-check" className="absolute -top-1.5 -end-1.5">
-                            <div className="flex size-4 items-center justify-center rounded-full bg-kitov-red shadow-xs">
+                            <div className="flex size-4 items-center justify-center rounded-full bg-brand-red shadow-xs">
                               <Icon icon="solar:check-circle-bold-duotone" className="size-3 text-white" />
                             </div>
                           </motion.div>
@@ -187,7 +187,7 @@ export function RegisterForm() {
                     value={password}
                     onChange={(e) => { setPassword(e.target.value); clearError("password"); }} />
                   <button type="button" onClick={() => setShowPassword(!showPassword)}
-                    className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-kitov-dark transition-colors" tabIndex={-1}>
+                    className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-brand-dark transition-colors" tabIndex={-1}>
                     <Icon icon={showPassword ? "solar:eye-closed-bold-duotone" : "solar:eye-bold-duotone"} className="size-4" />
                   </button>
                 </div>
@@ -257,7 +257,7 @@ export function RegisterForm() {
               </AnimatePresence>
 
               {/* Submit */}
-              <KitovButton type="submit" variant="primary" className="w-full h-11" disabled={pending}>
+              <BrandButton type="submit" variant="primary" className="w-full h-11" disabled={pending}>
                 {pending ? (
                   <span className="flex items-center justify-center gap-2">
                     <Icon icon="solar:refresh-circle-bold-duotone" className="size-4 animate-spin" />
@@ -266,7 +266,7 @@ export function RegisterForm() {
                 ) : (
                   "إنشاء حساب"
                 )}
-              </KitovButton>
+              </BrandButton>
             </form>
 
             {/* Divider */}
@@ -278,12 +278,12 @@ export function RegisterForm() {
             </div>
 
             {/* Login Link */}
-            <p className="text-center text-sm text-kitov-dark/60">
+            <p className="text-center text-sm text-brand-dark/60">
               لديك حساب بالفعل؟{" "}
-              <Link href="/login" className="font-medium text-kitov-red underline-offset-4 hover:underline">تسجيل الدخول</Link>
+              <Link href="/login" className="font-medium text-brand-red underline-offset-4 hover:underline">تسجيل الدخول</Link>
             </p>
-          </KitovCardContent>
-        </KitovCard>
+          </BrandCardContent>
+        </BrandCard>
       </motion.div>
     </div>
   );

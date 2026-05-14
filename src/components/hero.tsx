@@ -1,6 +1,6 @@
 "use client"
 
-import { KitovButton } from "@/components/kitov"
+import { BrandButton } from "@/components/brand"
 import { RoleToggle } from "@/components/role-toggle"
 import { Leaf, Magnifier, Cart3 } from "@solar-icons/react/ssr"
 import Link from "next/link"
@@ -58,11 +58,11 @@ export function Hero({
   const Icon = content.icon
 
   return (
-    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-kitov-dark">
+    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-brand-dark">
       {/* subtle background decoration */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-kitov-yellow/5 blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-kitov-red/5 blur-3xl" />
+        <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-brand-yellow/5 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-brand-red/5 blur-3xl" />
         <div className="absolute left-1/3 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-white/[0.02] blur-2xl" />
       </div>
       <div className="mx-auto w-full max-w-2xl px-6 py-20 text-center">
@@ -96,10 +96,10 @@ export function Hero({
           className="mt-10"
         >
           <Link href="/register">
-            <KitovButton variant={role === "farmer" ? "primary" : "secondary"} size="lg" className="rounded-xl px-10 gap-2">
+            <BrandButton variant={role === "farmer" ? "primary" : "secondary"} size="lg" className="rounded-xl px-10 gap-2">
               <Icon weight="BoldDuotone" className="size-5" />
               {content.cta}
-            </KitovButton>
+            </BrandButton>
           </Link>
         </motion.div>
       </div>

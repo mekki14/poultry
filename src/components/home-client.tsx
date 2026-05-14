@@ -3,15 +3,15 @@
 import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
 import {
-  KitovSection,
-  KitovSectionHeading,
-  KitovSectionSubheading,
-  KitovCard,
-  KitovCardHeader,
-  KitovCardTitle,
-  KitovCardDescription,
-  KitovButton,
-} from "@/components/kitov"
+  BrandSection,
+  BrandSectionHeading,
+  BrandSectionSubheading,
+  BrandCard,
+  BrandCardHeader,
+  BrandCardTitle,
+  BrandCardDescription,
+  BrandButton,
+} from "@/components/brand"
 
 import { Hero } from "@/components/hero"
 import {
@@ -92,12 +92,12 @@ export function HomeClient() {
       <Hero role={role} onToggle={handleRoleToggle} />
 
       {/* ── Services ── */}
-      <KitovSection id="services">
+      <BrandSection id="services">
         <div className="mx-auto w-full max-w-6xl px-6">
-          <KitovSectionHeading>خدمات فلاحك</KitovSectionHeading>
-          <KitovSectionSubheading className="mx-auto">
+          <BrandSectionHeading>خدمات فلاحك</BrandSectionHeading>
+          <BrandSectionSubheading className="mx-auto">
             كل ما تحتاجه لتطوير مزرعتك أو تأمين منتجاتك
-          </KitovSectionSubheading>
+          </BrandSectionSubheading>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {sections.services.map((item, i) => {
               const Icon = item.icon
@@ -109,31 +109,31 @@ export function HomeClient() {
                   transition={{ ...transition, delay: i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <KitovCard
+                  <BrandCard
                     variant="yellow"
-                    className="h-full cursor-pointer transition-all hover:shadow-kitov-lg"
+                    className="h-full cursor-pointer transition-all hover:shadow-brand-lg"
                   >
-                    <KitovCardHeader>
-                      <Icon className="mb-2 size-8 text-kitov-dark" />
-                      <KitovCardTitle>{item.title}</KitovCardTitle>
-                      <KitovCardDescription>{item.desc}</KitovCardDescription>
-                    </KitovCardHeader>
-                  </KitovCard>
+                    <BrandCardHeader>
+                      <Icon className="mb-2 size-8 text-brand-dark" />
+                      <BrandCardTitle>{item.title}</BrandCardTitle>
+                      <BrandCardDescription>{item.desc}</BrandCardDescription>
+                    </BrandCardHeader>
+                  </BrandCard>
                 </motion.div>
               )
             })}
           </div>
         </div>
-      </KitovSection>
+      </BrandSection>
 
 
       {/* ── Stats ── */}
-      <KitovSection variant="dark">
+      <BrandSection variant="dark">
         <div className="mx-auto w-full max-w-6xl px-6 text-center">
-          <KitovSectionHeading>فلاحك في أرقام</KitovSectionHeading>
-          <KitovSectionSubheading className="mx-auto">
+          <BrandSectionHeading>فلاحك في أرقام</BrandSectionHeading>
+          <BrandSectionSubheading className="mx-auto">
             منصة الجزائر الأولى في قطاع الدواجن
-          </KitovSectionSubheading>
+          </BrandSectionSubheading>
           <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
             {[
               { stat: "+5000", label: "فلاح مسجل" },
@@ -141,32 +141,32 @@ export function HomeClient() {
               { stat: "+1500", label: "عملية يومية" },
               { stat: "+48", label: "ولاية مغطاة" },
             ].map((item) => (
-              <KitovCard key={item.label} variant="dark" className="border-white/10">
-                <KitovCardHeader>
-                  <div className="font-heading text-4xl font-extrabold text-kitov-yellow md:text-5xl">{item.stat}</div>
-                  <KitovCardDescription className="text-white/60">{item.label}</KitovCardDescription>
-                </KitovCardHeader>
-              </KitovCard>
+              <BrandCard key={item.label} variant="dark" className="border-white/10">
+                <BrandCardHeader>
+                  <div className="font-heading text-4xl font-extrabold text-brand-yellow md:text-5xl">{item.stat}</div>
+                  <BrandCardDescription className="text-white/60">{item.label}</BrandCardDescription>
+                </BrandCardHeader>
+              </BrandCard>
             ))}
           </div>
         </div>
-      </KitovSection>
+      </BrandSection>
 
       {/* ── CTA ── */}
-      <KitovSection variant="yellow">
+      <BrandSection variant="yellow">
         <div className="mx-auto w-full max-w-6xl px-6 text-center">
-          <KitovSectionHeading className="text-kitov-dark">
+          <BrandSectionHeading className="text-brand-dark">
             {sections.cta.heading}
-          </KitovSectionHeading>
-          <KitovSectionSubheading className="mx-auto text-kitov-dark/70">
+          </BrandSectionHeading>
+          <BrandSectionSubheading className="mx-auto text-brand-dark/70">
             {sections.cta.sub}
-          </KitovSectionSubheading>
+          </BrandSectionSubheading>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <KitovButton variant="primary" size="lg">{sections.cta.btn}</KitovButton>
-            <KitovButton variant="outline" size="lg">تسجيل الدخول</KitovButton>
+            <BrandButton variant="primary" size="lg">{sections.cta.btn}</BrandButton>
+            <BrandButton variant="outline" size="lg">تسجيل الدخول</BrandButton>
           </div>
         </div>
-      </KitovSection>
+      </BrandSection>
 
     </div>
   )

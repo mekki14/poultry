@@ -62,7 +62,7 @@ export default async function ProductsPage() {
           {userProducts.map((product) => (
             <div
               key={product.id}
-              className="rounded-carton border bg-card p-5 shadow-kitov transition-all duration-300 hover:shadow-kitov-lg"
+              className="rounded-carton border bg-card p-5 shadow-brand transition-all duration-300 hover:shadow-brand-lg"
             >
               <div className="flex items-start justify-between">
                 <div>
@@ -71,7 +71,7 @@ export default async function ProductsPage() {
                     {categories.find((c) => c.value === product.category)?.label || product.category}
                   </p>
                 </div>
-                <span className="whitespace-nowrap rounded-full bg-kitov-yellow/20 px-3 py-1 text-sm font-bold text-kitov-dark">
+                <span className="whitespace-nowrap rounded-full bg-brand-yellow/20 px-3 py-1 text-sm font-bold text-brand-dark">
                   {product.price} د.ج
                 </span>
               </div>

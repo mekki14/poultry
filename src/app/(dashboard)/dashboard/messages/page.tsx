@@ -70,7 +70,7 @@ export default async function MessagesPage({
       <div className="flex flex-col gap-4">
         <Link
           href="/dashboard/messages"
-          className="inline-flex items-center gap-1 text-sm font-medium text-kitov-red transition-colors hover:text-kitov-red/80"
+          className="inline-flex items-center gap-1 text-sm font-medium text-brand-red transition-colors hover:text-brand-red/80"
         >
           → العودة للمحادثات
         </Link>
@@ -179,7 +179,7 @@ export default async function MessagesPage({
           </p>
           <Link
             href="/dashboard/browse"
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-kitov-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
           >
             تصفح المنتجات
           </Link>
@@ -190,22 +190,22 @@ export default async function MessagesPage({
             <Link
               key={conv.key}
               href={`/dashboard/messages?userId=${conv.otherUserId}&productId=${conv.productId || ""}`}
-              className="flex items-center gap-4 rounded-carton border bg-card p-4 shadow-kitov transition-all hover:shadow-kitov-lg"
+              className="flex items-center gap-4 rounded-carton border bg-card p-4 shadow-brand transition-all hover:shadow-brand-lg"
             >
-              <div className="flex size-10 items-center justify-center rounded-full bg-kitov-red/10">
-                <ChatRoundDots className="size-5 text-kitov-red" />
+              <div className="flex size-10 items-center justify-center rounded-full bg-brand-red/10">
+                <ChatRoundDots className="size-5 text-brand-red" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <p className="font-heading font-bold">{conv.otherUserName}</p>
                   {conv.unread > 0 && (
-                    <span className="rounded-full bg-kitov-red px-2 py-0.5 text-[10px] font-bold text-white">
+                    <span className="rounded-full bg-brand-red px-2 py-0.5 text-[10px] font-bold text-white">
                       {conv.unread}
                     </span>
                   )}
                 </div>
                 {conv.productName && (
-                  <p className="text-xs text-kitov-red/70">{conv.productName}</p>
+                  <p className="text-xs text-brand-red/70">{conv.productName}</p>
                 )}
                 <p className="mt-0.5 truncate text-sm text-muted-foreground">
                   {conv.lastMessage}

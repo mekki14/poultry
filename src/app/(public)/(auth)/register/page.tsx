@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 import { RegisterForm } from "./register-form";
 
 export const metadata: Metadata = {
-  title: "إنشاء حساب | فلاك",
-  description: "انضم إلى منصة فلاك لتجارة الدواجن",
+  title: "إنشاء حساب | فلاحك",
+  description: "انضم إلى منصة فلاحك لتجارة الدواجن",
 };
 
 export default async function RegisterPage() {

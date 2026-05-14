@@ -81,8 +81,8 @@ export function EvilHoverTraceBarChart({
     <div className="flex h-full flex-col p-6">
       <div className="mb-6 flex items-end justify-between border-b border-dashed pb-4">
         <div className="space-y-1">
-          <p className="font-heading text-sm font-bold text-kitov-red/70 text-xs uppercase tracking-widest">{title}</p>
-          <p className="font-heading text-4xl font-black text-kitov-dark tracking-tight">
+          <p className="font-heading text-sm font-bold text-brand-red/70 text-xs uppercase tracking-widest">{title}</p>
+          <p className="font-heading text-4xl font-black text-brand-dark tracking-tight">
             <NumberFlow
               value={selectedData.value}
               format={format as any}
@@ -91,8 +91,8 @@ export function EvilHoverTraceBarChart({
         </div>
 
         <div className="space-y-1 text-left">
-          <p className="font-heading text-[10px] font-bold text-kitov-red/50 uppercase tracking-wider">{"الاختيار"}</p>
-          <p className="font-heading text-sm font-bold text-kitov-dark">{String(selectedData.label)}</p>
+          <p className="font-heading text-[10px] font-bold text-brand-red/50 uppercase tracking-wider">{"الاختيار"}</p>
+          <p className="font-heading text-sm font-bold text-brand-dark">{String(selectedData.label)}</p>
         </div>
       </div>
 
@@ -135,7 +135,7 @@ export function EvilHoverTraceBarChart({
 
           <ReferenceLine
             y={springValue}
-            stroke="var(--color-kitov-red)"
+            stroke="var(--color-brand-red)"
             strokeDasharray="4 4"
             strokeWidth={2}
             label={<HoverTraceLabel value={selectedData.value} />}

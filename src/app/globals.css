@@ -46,14 +46,14 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  /* ── Kitov Brand Tokens ── */
-  --color-kitov-red: #E31E24;
-  --color-kitov-yellow: #FFD200;
-  --color-kitov-dark: #1B3022;
-  --color-kitov-shell: #F9F9F9;
+  /* ── Brand Tokens ── */
+  --color-brand-red: #E31E24;
+  --color-brand-yellow: #FFD200;
+  --color-brand-dark: #1B3022;
+  --color-brand-shell: #F9F9F9;
   --radius-carton: 1.25rem;
-  --shadow-kitov: 0 4px 16px rgba(27, 48, 34, 0.15);
-  --shadow-kitov-lg: 0 8px 32px rgba(27, 48, 34, 0.2);
+  --shadow-brand: 0 4px 16px rgba(27, 48, 34, 0.15);
+  --shadow-brand-lg: 0 8px 32px rgba(27, 48, 34, 0.2);
   --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   --animate-bounce-soft: bounce-soft 0.5s ease-out;
   --animate-wipe-in: wipe-in 0.6s ease-out;

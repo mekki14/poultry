@@ -91,14 +91,14 @@ export function SidebarNav({
             href={item.href}
             className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
               active
-                ? "bg-kitov-yellow/20 text-kitov-dark"
-                : "text-muted-foreground hover:bg-kitov-yellow/10 hover:text-kitov-dark"
+                ? "bg-brand-yellow/20 text-brand-dark"
+                : "text-muted-foreground hover:bg-brand-yellow/10 hover:text-brand-dark"
             }`}
           >
             <Icon className="size-5 transition-transform group-hover:scale-110" />
             <span className="flex-1">{item.label}</span>
             {badge !== null && (
-              <span className="rounded-full bg-kitov-red px-2 py-0.5 text-[10px] font-bold text-white">
+              <span className="rounded-full bg-brand-red px-2 py-0.5 text-[10px] font-bold text-white">
                 {badge > 99 ? "99+" : badge}
               </span>
             )}

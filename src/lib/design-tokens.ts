@@ -1,4 +1,4 @@
-export const kitov = {
+export const brand = {
   direction: "rtl" as const,
   lang: "ar" as const,
   colors: {
@@ -11,8 +11,8 @@ export const kitov = {
     carton: "1.25rem",
   },
   shadows: {
-    kitov: "0 4px 16px rgba(27, 48, 34, 0.15)",
-    "kitov-lg": "0 8px 32px rgba(27, 48, 34, 0.2)",
+    brand: "0 4px 16px rgba(27, 48, 34, 0.15)",
+    "brand-lg": "0 8px 32px rgba(27, 48, 34, 0.2)",
   },
   animation: {
     pop: "pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",

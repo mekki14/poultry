@@ -89,7 +89,7 @@ export default async function BrowseProductsPage() {
                     {catLabel(product.category)}
                   </p>
                 </div>
-                <span className="whitespace-nowrap rounded-full bg-kitov-yellow/20 px-3 py-1 text-sm font-bold text-kitov-dark">
+                <span className="whitespace-nowrap rounded-full bg-brand-yellow/20 px-3 py-1 text-sm font-bold text-brand-dark">
                   {product.price} د.ج
                 </span>
               </div>
@@ -104,7 +104,7 @@ export default async function BrowseProductsPage() {
                 <span>
                   الكمية: {product.quantity} {product.unit}
                 </span>
-                <span className="font-medium text-kitov-red">{product.sellerName}</span>
+                <span className="font-medium text-brand-red">{product.sellerName}</span>
               </div>
 
               <div className="mt-4 flex gap-2">

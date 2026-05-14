@@ -25,7 +25,7 @@ export function OrderDialog({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 rounded-xl bg-kitov-red px-4 py-2 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
+        className="inline-flex items-center gap-1.5 rounded-xl bg-brand-red px-4 py-2 text-sm font-bold text-white transition-all hover:bg-[#c81a1f]"
       >
         <Cart3 className="size-4" />
         اطلب
@@ -76,7 +76,7 @@ export function OrderDialog({
                 <button
                   type="submit"
                   disabled={pending}
-                  className="flex-1 rounded-xl bg-kitov-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
+                  className="flex-1 rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#c81a1f] disabled:opacity-50"
                 >
                   {pending ? "جاري..." : "تأكيد الطلب"}
                 </button>
